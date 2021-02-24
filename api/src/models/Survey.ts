@@ -10,7 +10,7 @@ class Survey {
   title: string;
 
   @Column()
-  descriptiom: string;
+  description: string;
 
   @CreateDateColumn()
   created_at: Date;
