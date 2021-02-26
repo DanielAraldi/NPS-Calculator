@@ -10,7 +10,7 @@ describe("Users", () => {
     await connection.runMigrations();
   });
 
-  it("Should be able to create a new user", async () => {
+  it("Should be able to create an new user", async () => {
     const response = await request(app).post("/users").send({
       name: "User Example",
       email: "user@example.com",
