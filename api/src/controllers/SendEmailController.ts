@@ -35,11 +35,12 @@ class SendEmailController {
       user_id: user.id,
       link: process.env.URL_MAIL,
     };
-
+    
     const npsPath = resolve(__dirname, "..", "views", "emails", "npsMail.hbs");
 
     const surveyUserAlreadyExists = await surveysUsersRepository.findOne({
       where: [{ user_id: user.id }, { value: null }],
+      relations: ["user", "survey"],
     });
 
     if (surveyUserAlreadyExists) {
