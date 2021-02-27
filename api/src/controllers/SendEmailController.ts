@@ -40,6 +40,8 @@ class SendEmailController {
       name: user.name,
       title: survey.title,
       description: survey.description,
+      user_id: user.id,
+      link: process.env.URL_MAIL
     };
 
     await SendEmailService.execute(email, survey.title, variables, npsPath);
