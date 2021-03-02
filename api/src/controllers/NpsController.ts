@@ -1,15 +1,16 @@
 import { Request, Response } from "express";
-import { getCustomRepository } from "typeorm";
+import { getCustomRepository, Not, IsNull } from "typeorm";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 
 class NpsController {
   async execute(request: Request, response: Response) {
-    const { survey_id } = request.body;
+    const { survey_id } = request.params;
 
     const surveysUsersRepository = getCustomRepository(SurveysUsersRepository);
 
     const surveysUsers = await surveysUsersRepository.find({
       survey_id,
+      value: Not(IsNull()),
     });
 
     const detractors = surveysUsers.filter(
@@ -26,7 +27,9 @@ class NpsController {
 
     const totalAnswers = surveysUsers.length;
 
-    const calculate = ((promoters - detractors) / totalAnswers) * 100;
+    const calculate = Number(
+      (((promoters - detractors) / totalAnswers) * 100).toFixed(2)
+    );
 
     return response.status(200).json({
       promoters,
