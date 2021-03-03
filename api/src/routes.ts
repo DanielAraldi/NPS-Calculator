@@ -4,6 +4,7 @@ import { SurveysController } from "./controllers/SurveysController";
 import { UserController } from "./controllers/UserController";
 import { AnswerController } from "./controllers/AnswerController";
 import { NpsController } from "./controllers/NpsController";
+import { AppError } from "./errors/AppError";
 
 const router = Router();
 
@@ -23,5 +24,9 @@ router.post("/sendmail", sendEmailController.execute);
 router.get("/answers/:value", answerController.execute);
 
 router.get("/nps/:survey_id", npsController.execute);
+
+router.all("*", () => {
+  throw new AppError("Not Found Page", 404);
+});
 
 export { router };
