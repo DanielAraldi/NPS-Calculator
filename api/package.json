@@ -11,14 +11,13 @@
   "dependencies": {
     "@types/assert": "^1.5.4",
     "@types/dotenv": "^8.2.0",
-    "assert": "^2.0.0",
+    "@types/node": "^14.14.31",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "handlebars": "^4.7.7",
     "nodemailer": "^6.5.0",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.0.2",
-    "ts-dotenv": "^0.8.3",
     "typeorm": "^0.2.31",
     "uuid": "^8.3.2",
     "yup": "^0.32.9"
