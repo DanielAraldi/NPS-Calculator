@@ -65,7 +65,7 @@ Essa aplicação foi realizada durante a **Next Level Week #4**, projeto da [Roc
     # - EXCLUIR ÚLTIMA TABELA CRIADA:
     $ yarn typeorm migration:revert # npm typeorm migration:revert
   # Inicie a API
-  $ yarn dev # ou npm npm dev
+  $ yarn dev # ou npm dev
   # Inicia os testes com Jest
   $ yarn test
 ```
