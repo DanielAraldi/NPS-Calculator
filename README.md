@@ -74,4 +74,5 @@ Essa aplicação foi realizada durante a **Next Level Week #4**, projeto da [Roc
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
+---
 <sup>Projeto desenvolvido com a tutoria de [Daniele Leão](https://github.com/danileao), da [Rocketseat](https://rocketseat.com.br/).</sup>
