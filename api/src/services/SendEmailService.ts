@@ -1,4 +1,9 @@
-import { Transporter, createTestAccount, createTransport, getTestMessageUrl } from "nodemailer";
+import {
+  Transporter,
+  createTestAccount,
+  createTransport,
+  getTestMessageUrl,
+} from "nodemailer";
 import handlebars from "handlebars";
 import fs from "fs";
 
@@ -10,10 +15,11 @@ class SendEmailService {
       const transporter = createTransport({
         host: account.smtp.host,
         port: account.smtp.port,
-        secure: account.smtp.secure,
+        secure: true,
+        service: "gmail" || "hotmail",
         auth: {
-          user: account.user,
-          pass: account.pass,
+          user: process.env["MAIL_LOGIN"],
+          pass: process.env["MAIL_PASSWORD"],
         },
       });
 
@@ -32,7 +38,7 @@ class SendEmailService {
       to,
       subject,
       html,
-      from: `NPS <noreplay@nps.com.br>`,
+      from: `NPS <${process.env["MAIL_LOGIN"]}>`,
     });
 
     console.log("Message sent: %s", message.messageId);
