@@ -1,4 +1,4 @@
-import nodemailer, { Transporter } from "nodemailer";
+import { Transporter, createTestAccount, createTransport, getTestMessageUrl } from "nodemailer";
 import handlebars from "handlebars";
 import fs from "fs";
 
@@ -6,8 +6,8 @@ class SendEmailService {
   private client: Transporter;
 
   constructor() {
-    nodemailer.createTestAccount().then((account) => {
-      const transporter = nodemailer.createTransport({
+    createTestAccount().then((account) => {
+      const transporter = createTransport({
         host: account.smtp.host,
         port: account.smtp.port,
         secure: account.smtp.secure,
@@ -32,11 +32,11 @@ class SendEmailService {
       to,
       subject,
       html,
-      from: "NPS <noreplay@nps.com.br>",
+      from: `NPS <noreplay@nps.com.br>`,
     });
 
     console.log("Message sent: %s", message.messageId);
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(message));
+    console.log("Preview URL: %s", getTestMessageUrl(message));
   }
 }
 
