@@ -58,7 +58,7 @@ Essa aplicação foi realizada durante a **Next Level Week #4**, projeto da [Roc
   # API
   $ cd api
   # Instalando as dependências do projeto.
-  $ yarn # npm install
+  $ yarn install # npm install
   # CONFIGURANDO O BANCO DE DADOS
     # - CRIAÇÃO DE TABELAS:
     $ yarn typeorm migrations:run # npm typeorm migrations:run
@@ -67,7 +67,7 @@ Essa aplicação foi realizada durante a **Next Level Week #4**, projeto da [Roc
   # Inicie a API
   $ yarn dev # ou npm dev
   # Inicia os testes com Jest
-  $ yarn test
+  $ yarn test # ou npm test
 ```
 
 ## :memo: Licença
