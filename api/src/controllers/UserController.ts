@@ -9,8 +9,22 @@ class UserController {
     const { name, email } = request.body;
 
     const schema = yup.object().shape({
-      name: yup.string().required("Required name!"),
-      email: yup.string().email().required("Required e-mail!"),
+      name: yup
+        .string()
+        .ensure()
+        .trim()
+        .strict(true)
+        .default("")
+        .required("Required name!")
+        .max(250, "Character limit above 250"),
+      email: yup
+        .string()
+        .ensure()
+        .trim()
+        .strict(true)
+        .email()
+        .required("Required e-mail!")
+        .typeError("Enter a valid e-mail"),
     });
 
     // if (!(await schema.isValid(request.body)))
