@@ -4,8 +4,6 @@ import { AppError } from "../errors/AppError";
 
 class RequestValidatorAdapter {
   async isValidRequest(request: Request) {
-    const { name, email } = request.body;
-
     const schema = yup.object().shape({
       name: yup
         .string()
