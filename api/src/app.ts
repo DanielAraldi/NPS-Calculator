@@ -1,16 +1,21 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 dotenv.config();
 import "reflect-metadata";
-import express, { NextFunction, Response, Request } from "express";
+import express, {
+  NextFunction,
+  Response,
+  Request,
+  Express,
+  json,
+} from "express";
 import "express-async-errors";
 import createConnection from "./database";
 import { router } from "./routes";
 import { AppError } from "./errors/AppError";
 
 createConnection();
-const app = express();
-
-app.use(express.json());
+const app: Express = express();
+app.use(json() as Express);
 app.use(router);
 
 app.use(
